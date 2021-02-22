@@ -9,7 +9,7 @@ class AnimationPage extends StatefulWidget {
 
 class _AnimationPageState extends State<AnimationPage>
     with SingleTickerProviderStateMixin {
-  Animation animation, transformationAnimation;
+  Animation animation;
   AnimationController animationController;
 
   @override
@@ -19,17 +19,9 @@ class _AnimationPageState extends State<AnimationPage>
         AnimationController(duration: Duration(seconds: 5), vsync: this);
     // it flying from left side towards center
     // -ve value mean it start from left side
-    animation = Tween(begin: 10.0, end: 200.0).animate(CurvedAnimation(
+    animation = IntTween(begin: 0, end: 10).animate(CurvedAnimation(
       parent: animationController,
-      curve: Curves.ease,
-    ));
-
-    transformationAnimation = BorderRadiusTween(
-            begin: BorderRadius.circular(150.0),
-            end: BorderRadius.circular(0.0))
-        .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Curves.ease,
+      curve: Curves.easeOut,
     ));
 
     animationController.forward();
@@ -42,21 +34,14 @@ class _AnimationPageState extends State<AnimationPage>
       builder: (BuildContext context, Widget child) {
         return Scaffold(
           body: Center(
-            child: Stack(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  child: Container(
-                    alignment: Alignment.bottomCenter,
-                    width: animation.value * 2,
-                    height: animation.value * 2,
-                    decoration: BoxDecoration(
-                      borderRadius: transformationAnimation.value,
-                      image: DecorationImage(
-                        image: AssetImage('images/Makkah.jpg'),
-                      ),
-                    ),
-                  ),
-                )
+                Text('Loading...', style: TextStyle(color: Colors.white)),
+                Text(
+                  animation.value.toString(),
+                  style: TextStyle(fontSize: 50.0, color: Colors.white),
+                ),
               ],
             ),
           ),
