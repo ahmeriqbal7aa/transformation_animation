@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:transformation_animation/login.dart';
+import 'package:transformation_animation/animations.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
         accentColor: Color(0xff007EF4),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginPage(),
+      home: AnimationPage(),
     );
   }
 }

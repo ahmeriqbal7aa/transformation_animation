@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 
-class LoginPage extends StatefulWidget {
+class AnimationPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _AnimationPageState createState() => _AnimationPageState();
 }
 
-class _LoginPageState extends State<LoginPage>
+class _AnimationPageState extends State<AnimationPage>
     with SingleTickerProviderStateMixin {
   Animation animation, transformationAnimation;
   AnimationController animationController;
